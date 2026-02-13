@@ -81,7 +81,15 @@ main {
 
 
 /* Product Categories */
-
+.category-item {
+    background-color: rgba(0, 0, 0, 0.507);
+    padding: 20px;
+    margin: 20px;
+    border-radius: 20px;
+    width: 30%;
+    display: inline-block;
+    height: 200px;
+}
 
 /* Footer */
 footer {
