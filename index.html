@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,13 +10,15 @@
     <link rel="stylesheet" href="styles.css">
     <title>Alkatrészek</title>
 </head>
+
 <body>
     <nav>
-        <a href="index.html">FŐOLDAL</a>
+        <a href="index.html" class="active">FŐOLDAL</a>
         <a href="cpu.html">CPU</a>
         <a href="gpu.html">GPU</a>
         <a href="ram.html">RAM</a>
         <a href="storage.html">TÁRHELY</a>
+        <a href="neumann.html">NEUMANN</a>
     </nav>
     <main>
         <!-- Welcome Section -->
@@ -23,27 +26,30 @@
             <h1>Köszöntjük az Alkatrészek Boltban</h1>
             <p>A számítógép alkatrészek igazi egyablakos boltja.</p>
         </div>
-        
+
         <!-- Neumann János Section -->
         <div class="Neumann">
-            <h1>Neumann János</h1>
-            <p>Neumann János, a számítógép tudományának egyik legnagyobb alakja, aki a Neumann-architektúra megalkotásával forradalmasította a számítástechnika világát. Az ő munkássága tette lehetővé a modern számítógépek fejlődését, és hozzájárult a digitális korszak kialakulásához.</p>
+            <h1><a href="neumann.html" style="text-decoration: none; color: white;">Neumann János</a></h1>
+            <p>Neumann János, a számítógép tudományának egyik legnagyobb alakja, aki a Neumann-architektúra
+                megalkotásával forradalmasította a számítástechnika világát. Az ő munkássága tette lehetővé a modern
+                számítógépek fejlődését, és hozzájárult a digitális korszak kialakulásához.</p>
         </div>
 
         <!-- Product Categories Section -->
         <div class="categories">
             <h1>Termékkategóriák</h1>
             <div class="category-list">
-                <a href="cpu.html" class="category-item">CPU</a>
-                <a href="gpu.html" class="category-item">GPU</a>
-                <a href="ram.html" class="category-item">RAM</a>
-                <a href="storage.html" class="category-item">TÁRHELY</a>
+                <a href="cpu.html" id="cpu" class="category-item">CPU</a>
+                <a href="gpu.html" id="gpu" class="category-item">GPU</a>
+                <a href="ram.html" id="ram" class="category-item">RAM</a>
+                <a href="storage.html" id="storage" class="category-item">TÁRHELY</a>
             </div>
-        
+
     </main>
     <!-- Footer -->
     <footer>
         <p>&copy; 2026 Alkatrészek Bolt. Minden jog fenntartva.</p>
     </footer>
 </body>
+
 </html>
