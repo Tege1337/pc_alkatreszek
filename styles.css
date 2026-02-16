@@ -97,6 +97,7 @@ main {
     background-position: center;
     background-repeat: no-repeat;
     transition: transform 0.3s ease;
+    box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.5);
 
     /* Text Styles */
     color: white;
