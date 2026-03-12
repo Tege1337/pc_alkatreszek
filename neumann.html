@@ -8,51 +8,61 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-    <title>Neumann János</title>
+    <title>Az Elektromos Roller Története</title>
 </head>
 
 <body>
     <nav>
         <a href="index.html">FŐOLDAL</a>
-        <a href="cpu.html">CPU</a>
-        <a href="gpu.html">GPU</a>
-        <a href="ram.html">RAM</a>
-        <a href="storage.html">TÁRHELY</a>
-        <a href="neumann.html" class="active">NEUMANN</a>
+        <a href="cpu.html">ROBOGÓK</a>
+        <a href="gpu.html">MOTOR</a>
+        <a href="ram.html">AKKUMULÁTOR</a>
+        <a href="storage.html">KEREKEK</a>
+        <a href="neumann.html" class="active">TÖRTÉNET</a>
+        <a href="cart.html">🛒 <span id="cart-count"></span></a>
     </nav>
     <main>
-        <h1>Neumann János (1903-1957)</h1>
+        <h1>Az Elektromos Roller Története</h1>
 
         <div class="info-box">
-            <img src="neumann.jpg" alt="Neumann János" class="info-image">
-
             <div class="info-content">
-                <h2>A Számítógép Atyja</h2>
-                <p>Neumann János (John von Neumann) magyar származású matematikus volt. A kvantummechanikától a
-                    játékelméletig számos területen alkotott maradandót, de a legnagyobb hatása talán a
-                    számítástechnikára volt.</p>
+                <h2>A kezdetek – 1895</h2>
+                <p>Az elektromos közlekedés gondolata nem új: az első elektromos járművek már a 19. század végén
+                    megjelentek. <strong>Ogden Bolton Jr.</strong> 1895-ben szabadalmaztatta az első elektromos
+                    kerékpármotor-rendszert. Az elektromos robogó ötlete hamar követte, de az akkumulátor-technológia
+                    hiányosságai évtizedekre visszavetették az elterjedést.</p>
 
-                <h2>A Neumann-elvek</h2>
-                <p>A mai számítógépek működése az általa lefektetett elveken alapul:</p>
-                <ul>
-                    <li><strong>Kettes számrendszer használata:</strong> Minden adat 0 és 1 sorozata.</li>
-                    <li><strong>Memória:</strong> Az adatok és a programok ugyanabban a memóriában tárolódnak.</li>
-                    <li><strong>Soros utasítás-végrehajtás:</strong> A gép lépésről lépésre hajtja végre a parancsokat.
-                    </li>
-                    <li><strong>Univerzális gép:</strong> Ugyanaz a hardver különböző szoftverekkel bármilyen feladatra
-                        alkalmas.</li>
-                </ul>
+                <h2>Az első elektromos roller – 1915</h2>
+                <p>Az <strong>Autoped</strong> volt az első tömegesen gyártott roller, amelyet 1915-ben mutattak be
+                    New Yorkban. Bár benzinmotoros volt, hamarosan elkészítették elektromos változatát is. Az
+                    alacsony hatótávolság és a nehéz ólomakkumulátorok miatt azonban a termék nem terjedt el széles
+                    körben.</p>
 
-                <h2>Élete és Öröksége</h2>
-                <p>Budapesten született, majd Németországban és az Egyesült Államokban dolgozott. Részt vett az első
-                    elektronikus számítógép, az ENIAC fejlesztésében is. Zsenialitása nélkül a mai digitális világ nem
-                    létezne.</p>
+                <h2>A lítium-ion forradalom – 1990-es évek</h2>
+                <p>A <strong>lítium-ion akkumulátor</strong> kereskedelmi forgalomba kerülésével (Sony, 1991) az
+                    elektromos mobilitás valódi lehetőséggé vált. Könnyebb, nagyobb kapacitású akkumulátorok
+                    forradalmasították a hordozható elektronikát – és hamarosan a közlekedési eszközöket is.</p>
+
+                <h2>A városi robbanás – 2010-es évek</h2>
+                <p>A 2010-es évek második felében a megosztott elektromos roller szolgáltatások (Bird, Lime, Tier)
+                    szédületes gyorsasággal hódították meg a nagyvárosokat. A <strong>Xiaomi Mi Electric Scooter</strong>
+                    (2016) forradalmasította a fogyasztói piacot: megfizethető ár, modern design, okostelefon-kapcsolat.
+                    Hamarosan Ninebot, Kaabo, Vsett és más márkák is tömegesen jelentek meg.</p>
+
+                <h2>Ma és a jövő</h2>
+                <p>Az elektromos roller mára a városi közlekedés elmaradhatatlan részévé vált. A modern modellek
+                    elérik a <strong>70–100 km-es hatótávolságot</strong>, rendelkeznek GPS-szel, okos zárolással,
+                    regeneratív fékezéssel és mobilapplikációs irányítással. A jövő az intelligens, összekapcsolt
+                    mikromobilitásé – és boltunk pontosan ezért van itt: hogy te is részese lehess ennek a
+                    forradalomnak.</p>
             </div>
         </div>
     </main>
     <footer>
-        <p>&copy; 2026 Alkatrészek Bolt. Minden jog fenntartva.</p>
+        <p>&copy; 2026 Elektromos Roller Bolt. Minden jog fenntartva.</p>
     </footer>
+    <div id="toast"></div>
+    <script src="cart.js"></script>
 </body>
 
 </html>

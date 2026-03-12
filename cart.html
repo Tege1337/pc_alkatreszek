@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <title>Bevásárlókosár</title>
+</head>
+
+<body>
+    <nav>
+        <a href="index.html">FŐOLDAL</a>
+        <a href="cpu.html">ROBOGÓK</a>
+        <a href="gpu.html">MOTOR</a>
+        <a href="ram.html">AKKUMULÁTOR</a>
+        <a href="storage.html">KEREKEK</a>
+        <a href="neumann.html">TÖRTÉNET</a>
+        <a href="cart.html" class="active">🛒 <span id="cart-count"></span></a>
+    </nav>
+    <main>
+        <h1>Bevásárlókosár</h1>
+        <div class="info-box" id="cart-container">
+            <!-- Cart contents injected by JS -->
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2026 Elektromos Roller Bolt. Minden jog fenntartva.</p>
+    </footer>
+    <div id="toast"></div>
+    <script src="cart.js"></script>
+    <script>
+        function escapeHtml(str) {
+            return str
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;')
+                .replace(/'/g, '&#039;');
+        }
+
+        function removeFromCart(name) {
+            let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+            cart = cart.filter(function(item) { return item.name !== name; });
+            localStorage.setItem('cart', JSON.stringify(cart));
+            updateCartCount();
+            renderCart();
+        }
+
+        function formatPrice(p) {
+            return p.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '\u00a0') + ' Ft';
+        }
+
+        function renderCart() {
+            const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+            const container = document.getElementById('cart-container');
+
+            if (cart.length === 0) {
+                container.innerHTML = '<p style="font-size:22px; text-align:center; padding:40px;">A kosár üres. <a href="index.html" style="color:#4CAF50;">Válogasson termékeink közül!</a></p>';
+                return;
+            }
+
+            const total = cart.reduce(function(sum, item) { return sum + item.price * item.qty; }, 0);
+
+            let rows = '';
+            cart.forEach(function(item) {
+                rows += '<tr>'
+                    + '<td>' + escapeHtml(item.name) + '</td>'
+                    + '<td>' + item.qty + ' db</td>'
+                    + '<td>' + formatPrice(item.price) + '</td>'
+                    + '<td>' + formatPrice(item.price * item.qty) + '</td>'
+                    + '<td><button class="btn-remove" data-name="' + escapeHtml(item.name) + '">Eltávolít</button></td>'
+                    + '</tr>';
+            });
+
+            container.innerHTML =
+                '<table class="cart-table">'
+                + '<thead><tr><th>Termék</th><th>Mennyiség</th><th>Egységár</th><th>Összesen</th><th></th></tr></thead>'
+                + '<tbody>' + rows + '</tbody>'
+                + '</table>'
+                + '<p class="cart-total">Végösszeg: ' + formatPrice(total) + '</p>'
+                + '<button class="btn-checkout" id="checkout-btn">Megrendelés</button>';
+
+            document.querySelectorAll('.btn-remove').forEach(function(btn) {
+                btn.addEventListener('click', function() {
+                    removeFromCart(btn.dataset.name);
+                });
+            });
+
+            const checkoutBtn = document.getElementById('checkout-btn');
+            if (checkoutBtn) {
+                checkoutBtn.addEventListener('click', checkout);
+            }
+        }
+
+        function checkout() {
+            localStorage.removeItem('cart');
+            updateCartCount();
+            const container = document.getElementById('cart-container');
+            container.innerHTML = '<p style="font-size:22px; text-align:center; padding:40px; color:#4CAF50;">✅ Köszönjük a rendelést! Hamarosan felvesszük Önnel a kapcsolatot.</p>';
+        }
+
+        renderCart();
+    </script>
+</body>
+
+</html>

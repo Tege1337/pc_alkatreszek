@@ -8,47 +8,107 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-    <title>Tárhely - Storage</title>
+    <title>Kerekek és Fékek</title>
 </head>
 
 <body>
     <nav>
         <a href="index.html">FŐOLDAL</a>
-        <a href="cpu.html">CPU</a>
-        <a href="gpu.html">GPU</a>
-        <a href="ram.html">RAM</a>
-        <a href="storage.html" class="active">TÁRHELY</a>
-        <a href="neumann.html">NEUMANN</a>
+        <a href="cpu.html">ROBOGÓK</a>
+        <a href="gpu.html">MOTOR</a>
+        <a href="ram.html">AKKUMULÁTOR</a>
+        <a href="storage.html" class="active">KEREKEK</a>
+        <a href="neumann.html">TÖRTÉNET</a>
+        <a href="cart.html">🛒 <span id="cart-count"></span></a>
     </nav>
     <main>
-        <h1>Adattárolás (Storage)</h1>
+        <h1>Kerekek és Fékek</h1>
 
         <div class="info-box">
-            <img src="storage.jpg" alt="Tárhely eszközök" class="info-image">
-
             <div class="info-content">
-                <h2>HDD vs SSD</h2>
-                <p>Az adattárolás technológiája drasztikusan megváltozott az elmúlt évtizedben.</p>
+                <h2>Pneumatik vs. tömör gumi</h2>
+                <p>A gumi típusa nagy hatással van a kényelemre és a biztonságra:</p>
+                <ul>
+                    <li><strong>Pneumatik (légnyomásos):</strong> Rugalmasabb, jobban nyeli az egyenetlenségeket,
+                        pontosabb kanyarodás – de defektet kaphat.</li>
+                    <li><strong>Tömör (solid):</strong> Soha nem defektes, kevesebb karbantartás – de keményebb menet,
+                        kevésbé tapadós nedvesen.</li>
+                    <li><strong>Önjavító (self-sealing):</strong> Szlézszerű anyaggal töltött, kis lyukakat
+                        automatikusan betömi.</li>
+                </ul>
 
-                <h3>HDD (Merevlemez)</h3>
-                <p>Mágneses lemezeket használ, mozgó alkatrészekkel. Lassabb, de olcsón kínál hatalmas tárhelyet.
-                    Ideális filmek, képek, biztonsági mentések tárolására.</p>
+                <h2>Fékrendszerek</h2>
+                <ul>
+                    <li><strong>Tárcsafék:</strong> Legerősebb, legjobb nedves körülmények közt, könnyen állítható.</li>
+                    <li><strong>Dobfék:</strong> Megbízható, olcsó, de gyengébb teljesítmény.</li>
+                    <li><strong>Elektromos (regeneratív):</strong> Energiát visszatáplál az akkumulátorba, de önmagában nem elégséges.</li>
+                </ul>
 
-                <h3>SSD (Solid State Drive)</h3>
-                <p>Flash memóriát használ, nincsenek benne mozgó alkatrészek. Sokkal gyorsabb, mint a HDD (akár
-                    10x-100x), csendesebb és strapabíróbb.</p>
-
-                <h2>Az NVMe Forradalom</h2>
-                <p>A modern SSD-k leggyorsabb fajtája az <strong>M.2 NVMe SSD</strong>. Ezek közvetlenül az alaplapra
-                    csatlakoznak, és elképesztő sebességgel (akár 7000 MB/s felett) írnak és olvasnak. Minden modern
-                    gépbe kötelező legalább egy ilyen az operációs rendszer számára, hogy a gép pillanatok alatt
-                    bekapcsoljon.</p>
+                <h2>Termékeink</h2>
+                <div class="product-grid">
+                    <div class="product-card">
+                        <div class="product-card-image" style="background: linear-gradient(135deg, #1a1a2e, #16213e);">🛞</div>
+                        <div class="product-card-body">
+                            <h3>8,5" Pneumatik belső gumi</h3>
+                            <p class="specs">8,5×2" · Schrader szelep · Xiaomi Mi / Ninebot kompatibilis</p>
+                            <p class="price">2 990 Ft</p>
+                            <button class="btn-cart" onclick="addToCart('8,5&quot; Pneumatik belső gumi', 2990)">🛒 Kosárba</button>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-card-image" style="background: linear-gradient(135deg, #0f3460, #533483);">🛞</div>
+                        <div class="product-card-body">
+                            <h3>10" Pneumatik külső gumi</h3>
+                            <p class="specs">10×2,5" · mélyített futófelület · univerzális illesztés</p>
+                            <p class="price">4 490 Ft</p>
+                            <button class="btn-cart" onclick="addToCart('10&quot; Pneumatik külső gumi', 4490)">🛒 Kosárba</button>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-card-image" style="background: linear-gradient(135deg, #003973, #00b09b);">🛞</div>
+                        <div class="product-card-body">
+                            <h3>10" Tömör gumi (solid)</h3>
+                            <p class="specs">10×2,5" · defektmentes · hosszú élettartam · kemény menet</p>
+                            <p class="price">6 990 Ft</p>
+                            <button class="btn-cart" onclick="addToCart('10&quot; Tömör gumi', 6990)">🛒 Kosárba</button>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-card-image" style="background: linear-gradient(135deg, #134e5e, #71b280);">🛑</div>
+                        <div class="product-card-body">
+                            <h3>Tárcsafék szett (elülső)</h3>
+                            <p class="specs">120mm tárcsa · hidraulikus fékpofák · Xiaomi / Segway kompatibilis</p>
+                            <p class="price">8 990 Ft</p>
+                            <button class="btn-cart" onclick="addToCart('Tárcsafék szett elülső', 8990)">🛒 Kosárba</button>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-card-image" style="background: linear-gradient(135deg, #0a3d62, #079992);">🛑</div>
+                        <div class="product-card-body">
+                            <h3>Tárcsafék szett (hátsó)</h3>
+                            <p class="specs">140mm tárcsa · mechanikus fékpofák · univerzális rögzítés</p>
+                            <p class="price">9 990 Ft</p>
+                            <button class="btn-cart" onclick="addToCart('Tárcsafék szett hátsó', 9990)">🛒 Kosárba</button>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-card-image" style="background: linear-gradient(135deg, #232526, #414345);">🛑</div>
+                        <div class="product-card-body">
+                            <h3>Dobfék szett</h3>
+                            <p class="specs">Hátsó kerékhez · könnyű csere · 110mm dob átmérő</p>
+                            <p class="price">5 490 Ft</p>
+                            <button class="btn-cart" onclick="addToCart('Dobfék szett', 5490)">🛒 Kosárba</button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </main>
     <footer>
-        <p>&copy; 2026 Alkatrészek Bolt. Minden jog fenntartva.</p>
+        <p>&copy; 2026 Elektromos Roller Bolt. Minden jog fenntartva.</p>
     </footer>
+    <div id="toast"></div>
+    <script src="cart.js"></script>
 </body>
 
 </html>

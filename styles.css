@@ -56,11 +56,10 @@ main {
 }
 
 
-/* Neumann */
+/* Featured (formerly Neumann) */
 .Neumann {
-    background-image: url("neumann.jpg");
-    background-position: center;
-    background-size: cover;
+    background: linear-gradient(135deg, rgba(0, 36, 136, 0.85), rgba(0, 148, 7, 0.85));
+    border: 1px solid rgba(255, 255, 255, 0.15);
     padding: 50px;
     margin: 250px auto 0 auto;
     border-radius: 50px;
@@ -121,20 +120,187 @@ main {
     margin-bottom: 80px;
 }
 
-#cpu {
-    background-image: url("cpu.jpg");
+#robogok {
+    background: linear-gradient(135deg, #003973, #00b09b);
 }
 
-#gpu {
-    background-image: url("gpu.png");
+#motor {
+    background: linear-gradient(135deg, #0f0c29, #302b63);
 }
 
-#ram {
-    background-image: url("ram.jpg");
+#akkumulator {
+    background: linear-gradient(135deg, #134e5e, #71b280);
 }
 
-#storage {
-    background-image: url("storage.jpg");
+#kerekek {
+    background: linear-gradient(135deg, #1a1a2e, #16213e);
+}
+
+/* Cart badge */
+#cart-count {
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 50%;
+    padding: 1px 7px;
+    font-size: 15px;
+    vertical-align: super;
+    margin-left: 2px;
+    display: none;
+}
+
+/* Toast notification */
+#toast {
+    position: fixed;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.85);
+    color: white;
+    padding: 14px 28px;
+    border-radius: 10px;
+    font-size: 18px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 999;
+    border: 1px solid #4CAF50;
+}
+
+#toast.show {
+    opacity: 1;
+}
+
+/* Product Cards */
+.product-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    justify-content: center;
+    margin: 30px 0;
+}
+
+.product-card {
+    background-color: rgba(0, 0, 0, 0.55);
+    border-radius: 16px;
+    width: 260px;
+    overflow: hidden;
+    box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease;
+}
+
+.product-card:hover {
+    transform: scale(1.04);
+}
+
+.product-card-image {
+    width: 100%;
+    height: 160px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 64px;
+}
+
+.product-card-body {
+    padding: 18px;
+}
+
+.product-card-body h3 {
+    font-size: 20px;
+    margin-bottom: 8px;
+    color: #4CAF50;
+}
+
+.product-card-body .specs {
+    font-size: 14px;
+    color: #ccc;
+    margin-bottom: 14px;
+    line-height: 1.5;
+}
+
+.product-card-body .price {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 14px;
+    color: white;
+}
+
+.btn-cart {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 10px;
+    font-size: 16px;
+    font-family: "Oswald", sans-serif;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.2s ease;
+}
+
+.btn-cart:hover {
+    background-color: #388E3C;
+}
+
+/* Cart Page */
+.cart-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 30px;
+}
+
+.cart-table th,
+.cart-table td {
+    padding: 14px 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    text-align: left;
+}
+
+.cart-table th {
+    color: #4CAF50;
+    font-size: 20px;
+}
+
+.cart-table td {
+    font-size: 18px;
+}
+
+.cart-total {
+    font-size: 28px;
+    font-weight: bold;
+    text-align: right;
+    margin-bottom: 24px;
+}
+
+.btn-checkout {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 16px 40px;
+    border-radius: 12px;
+    font-size: 22px;
+    font-family: "Oswald", sans-serif;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.btn-checkout:hover {
+    background-color: #388E3C;
+}
+
+.btn-remove {
+    background-color: rgba(200, 0, 0, 0.7);
+    color: white;
+    border: none;
+    padding: 6px 14px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-family: "Oswald", sans-serif;
+    cursor: pointer;
+}
+
+.btn-remove:hover {
+    background-color: rgba(200, 0, 0, 1);
 }
 
 /* Footer */
@@ -285,5 +451,11 @@ nav a.active {
 
     .info-content {
         font-size: 16px;
+    }
+
+    /* Product Cards */
+    .product-card {
+        width: 90%;
+        max-width: 340px;
     }
 }

@@ -8,55 +8,93 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-    <title>GPU - Videókártya</title>
+    <title>Motor - Elektromos Hajtás Alkatrészek</title>
 </head>
 
 <body>
     <nav>
         <a href="index.html">FŐOLDAL</a>
-        <a href="cpu.html">CPU</a>
-        <a href="gpu.html" class="active">GPU</a>
-        <a href="ram.html">RAM</a>
-        <a href="storage.html">TÁRHELY</a>
-        <a href="neumann.html">NEUMANN</a>
+        <a href="cpu.html">ROBOGÓK</a>
+        <a href="gpu.html" class="active">MOTOR</a>
+        <a href="ram.html">AKKUMULÁTOR</a>
+        <a href="storage.html">KEREKEK</a>
+        <a href="neumann.html">TÖRTÉNET</a>
+        <a href="cart.html">🛒 <span id="cart-count"></span></a>
     </nav>
     <main>
-        <h1>A Videókártya (GPU)</h1>
+        <h1>Elektromos Motorok</h1>
 
         <div class="info-box">
-            <img src="gpu.png" alt="Videókártya" class="info-image">
-
             <div class="info-content">
-                <h2>Mi az a GPU?</h2>
-                <p>A <strong>GPU (Graphics Processing Unit)</strong>, vagyis a grafikus feldolgozó egység, felelős a
-                    képi megjelenítésért. Míg a CPU a számítógép "agya", a GPU a "szeme" és a "vizuális központja". Ez
-                    az alkatrész végzi a bonyolult grafikai számításokat, legyen szó játékról, videovágásról vagy 3D
-                    tervezésről.</p>
+                <h2>Mi az a BLDC motor?</h2>
+                <p>Az elektromos rollerekben <strong>BLDC (Brushless Direct Current)</strong>, azaz kefementes
+                    egyenáramú motorokat alkalmaznak. Ezek csendesek, energiahatékonyak, minimális karbantartást
+                    igényelnek és hosszú élettartamúak. A legtöbb rollerben <strong>kerékagyba épített
+                    hub motor</strong> található, ami közvetlenül a kerékbe van integrálva.</p>
 
-                <h2>Integrált vs. Dedikált</h2>
-                <p>Két fő típusa létezik:</p>
+                <h2>Teljesítmény kategóriák</h2>
                 <ul>
-                    <li><strong>Integrált:</strong> A processzorba van építve. Általános irodai munkára és filmnézésre
-                        tökéletes, energiatakarékos.</li>
-                    <li><strong>Dedikált:</strong> Különálló kártya saját memóriával (VRAM). Játékokhoz és
-                        professzionális munkához elengedhetetlen a sokkal nagyobb teljesítménye miatt.</li>
+                    <li><strong>250 W:</strong> Városi közlekedéshez, egyenes úton, könnyebb sofőrnek. Legális EU-s kategória.</li>
+                    <li><strong>500 W:</strong> Enyhébb emelkedőkre is alkalmas, jobb gyorsulás és terhelhetőség.</li>
+                    <li><strong>1000 W+:</strong> Meredek kapaszkodókra, terep-rollerekre, nagyobb testsúlyhoz.</li>
                 </ul>
 
-                <h2>Fő Gyártók</h2>
-                <p>A piacot három nagy szereplő uralja:</p>
-                <ul>
-                    <li><strong>NVIDIA (GeForce):</strong> A piacvezető, híres a Ray Tracing (RTX) technológiájáról.
-                    </li>
-                    <li><strong>AMD (Radeon):</strong> Kiváló ár-érték arányú kártyákat kínál.</li>
-                    <li><strong>Intel (Arc):</strong> Új szereplő a dedikált kártyák piacán, ígéretes középkategóriás
-                        megoldásokkal.</li>
-                </ul>
+                <h2>Termékeink</h2>
+                <div class="product-grid">
+                    <div class="product-card">
+                        <div class="product-card-image" style="background: linear-gradient(135deg, #0f0c29, #302b63);">⚡</div>
+                        <div class="product-card-body">
+                            <h3>250 W Hub Motor</h3>
+                            <p class="specs">BLDC · 36V · 8,5" kerékhez · 6,7 kg · csendes üzem</p>
+                            <p class="price">24 990 Ft</p>
+                            <button class="btn-cart" onclick="addToCart('250 W Hub Motor', 24990)">🛒 Kosárba</button>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-card-image" style="background: linear-gradient(135deg, #232526, #414345);">⚡</div>
+                        <div class="product-card-body">
+                            <h3>500 W BLDC Motor</h3>
+                            <p class="specs">BLDC · 48V · 10" kerékhez · 8,2 kg · IP54 vízállóság</p>
+                            <p class="price">44 990 Ft</p>
+                            <button class="btn-cart" onclick="addToCart('500 W BLDC Motor', 44990)">🛒 Kosárba</button>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-card-image" style="background: linear-gradient(135deg, #1a1a2e, #16213e);">⚡</div>
+                        <div class="product-card-body">
+                            <h3>1000 W Dual Motor Kit</h3>
+                            <p class="specs">2× BLDC · 52V · 10" kerékhez · 2×9 kg · offroad teljesítmény</p>
+                            <p class="price">89 990 Ft</p>
+                            <button class="btn-cart" onclick="addToCart('1000 W Dual Motor Kit', 89990)">🛒 Kosárba</button>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-card-image" style="background: linear-gradient(135deg, #0f3460, #533483);">⚡</div>
+                        <div class="product-card-body">
+                            <h3>Motorvezérlő (Controller) 36V</h3>
+                            <p class="specs">36V · 15A · FOC vezérlés · regeneratív fékezés · IP65</p>
+                            <p class="price">12 990 Ft</p>
+                            <button class="btn-cart" onclick="addToCart('Motorvezérlő 36V', 12990)">🛒 Kosárba</button>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-card-image" style="background: linear-gradient(135deg, #005c97, #363795);">⚡</div>
+                        <div class="product-card-body">
+                            <h3>Motorvezérlő (Controller) 48V</h3>
+                            <p class="specs">48V · 25A · FOC vezérlés · regeneratív fékezés · IP65</p>
+                            <p class="price">18 990 Ft</p>
+                            <button class="btn-cart" onclick="addToCart('Motorvezérlő 48V', 18990)">🛒 Kosárba</button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </main>
     <footer>
-        <p>&copy; 2026 Alkatrészek Bolt. Minden jog fenntartva.</p>
+        <p>&copy; 2026 Elektromos Roller Bolt. Minden jog fenntartva.</p>
     </footer>
+    <div id="toast"></div>
+    <script src="cart.js"></script>
 </body>
 
 </html>
