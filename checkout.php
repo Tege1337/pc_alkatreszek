@@ -146,7 +146,7 @@ $csrf = htmlspecialchars($_SESSION['csrf_token'], ENT_QUOTES, 'UTF-8');
         <a href="aksik.html">AKKUMULÁTOR</a>
         <a href="kerekek.html">KEREKEK</a>
         <a href="tortenelem.html">TÖRTÉNET</a>
-        <a href="contact.php">KAPCSOLAT</a>
+        <a href="contact.html">KAPCSOLAT</a>
         <a href="cart.html">🛒 <span id="cart-count"></span></a>
     </nav>
     <main>

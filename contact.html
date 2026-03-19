@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <title>Kapcsolat - Elektromos Roller Bolt</title>
+</head>
+
+<body>
+    <nav>
+        <a href="index.html">FŐOLDAL</a>
+        <a href="robogok.html">ROBOGÓK</a>
+        <a href="motorok.html">MOTOR</a>
+        <a href="aksik.html">AKKUMULÁTOR</a>
+        <a href="kerekek.html">KEREKEK</a>
+        <a href="tortenelem.html">TÖRTÉNET</a>
+        <a href="contact.html" class="active">KAPCSOLAT</a>
+        <a href="cart.html">🛒 <span id="cart-count"></span></a>
+    </nav>
+    <main>
+        <h1>Kapcsolat</h1>
+
+        <div class="info-box checkout-form-box">
+            <div id="contact-success" class="form-success" style="display:none;">
+                <h2>✅ Üzenetét megkaptuk!</h2>
+                <p>Köszönjük megkeresését! Hamarosan felvesszük Önnel a kapcsolatot.</p>
+                <a href="index.html" class="btn-checkout" style="display:inline-block;text-decoration:none;margin-top:10px;">Vissza a főoldalra</a>
+            </div>
+
+            <div id="contact-form-wrap">
+                <div class="info-content">
+                    <h2>Írjon nekünk!</h2>
+                    <p>Kérdése van egy termékkel kapcsolatban, vagy segítségre van szüksége? Töltse ki az alábbi
+                        űrlapot és hamarosan felvesszük Önnel a kapcsolatot.</p>
+                </div>
+
+                <div id="form-errors" class="form-errors" style="display:none;">
+                    <ul id="error-list"></ul>
+                </div>
+
+                <form id="contact-form" class="php-form" novalidate>
+                    <div class="form-group">
+                        <label for="name">Teljes név <span class="required">*</span></label>
+                        <input type="text" id="name" name="name" required maxlength="100"
+                            placeholder="pl. Kovács János">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">E-mail cím <span class="required">*</span></label>
+                        <input type="email" id="email" name="email" required
+                            placeholder="pl. kovacs.janos@email.hu">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Telefonszám <span class="optional">(opcionális)</span></label>
+                        <input type="tel" id="phone" name="phone" maxlength="30"
+                            placeholder="pl. +36 30 123 4567">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Üzenet <span class="required">*</span></label>
+                        <textarea id="message" name="message" required maxlength="2000" rows="6"
+                            placeholder="Írja ide kérdését..."></textarea>
+                    </div>
+
+                    <button type="submit" class="btn-checkout">📨 Üzenet küldése</button>
+                </form>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2026 Elektromos Roller Bolt. Minden jog fenntartva.</p>
+    </footer>
+    <div id="toast"></div>
+    <script src="cart.js"></script>
+    <script>
+        document.getElementById('contact-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            var errors = [];
+            var name = document.getElementById('name').value.trim();
+            var email = document.getElementById('email').value.trim();
+            var phone = document.getElementById('phone').value.trim();
+            var message = document.getElementById('message').value.trim();
+
+            if (name === '') {
+                errors.push('A név megadása kötelező.');
+            } else if (name.length > 100) {
+                errors.push('A név túl hosszú (max. 100 karakter).');
+            }
+
+            var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (email === '' || !emailRegex.test(email)) {
+                errors.push('Érvényes e-mail cím szükséges.');
+            }
+
+            if (phone !== '' && !/^[\d\s+\-()\/.]{6,30}$/.test(phone)) {
+                errors.push('Érvénytelen telefonszám formátum.');
+            }
+
+            if (message === '') {
+                errors.push('Az üzenet megadása kötelező.');
+            } else if (message.length > 2000) {
+                errors.push('Az üzenet túl hosszú (max. 2000 karakter).');
+            }
+
+            var errorsDiv = document.getElementById('form-errors');
+            var errorList = document.getElementById('error-list');
+
+            if (errors.length > 0) {
+                errorList.innerHTML = errors.map(function (err) {
+                    return '<li>' + err.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;') + '</li>';
+                }).join('');
+                errorsDiv.style.display = 'block';
+                return;
+            }
+
+            errorsDiv.style.display = 'none';
+            document.getElementById('contact-form-wrap').style.display = 'none';
+            document.getElementById('contact-success').style.display = 'block';
+        });
+    </script>
+</body>
+
+</html>
