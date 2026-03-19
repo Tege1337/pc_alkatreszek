@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <title>Megrendelés - Elektromos Roller Bolt</title>
+</head>
+
+<body>
+    <nav>
+        <a href="index.html">FŐOLDAL</a>
+        <a href="robogok.html">ROBOGÓK</a>
+        <a href="motorok.html">MOTOR</a>
+        <a href="aksik.html">AKKUMULÁTOR</a>
+        <a href="kerekek.html">KEREKEK</a>
+        <a href="tortenelem.html">TÖRTÉNET</a>
+        <a href="contact.html">KAPCSOLAT</a>
+        <a href="cart.html">🛒 <span id="cart-count"></span></a>
+    </nav>
+    <main>
+        <h1>Megrendelés</h1>
+
+        <div id="checkout-success" class="info-box checkout-success" style="display:none;">
+            <h2>✅ Köszönjük a rendelést!</h2>
+            <p>Rendelési azonosítód: <strong id="order-id"></strong></p>
+            <p>Hamarosan felvesszük Önnel a kapcsolatot a megadott e-mail címen.</p>
+            <h3>Rendelt termékek:</h3>
+            <div id="success-cart-table"></div>
+            <a href="index.html" class="btn-checkout" style="display:inline-block;text-decoration:none;margin-top:10px;">Vissza a főoldalra</a>
+        </div>
+
+        <div id="checkout-empty" class="info-box" style="display:none;text-align:center;padding:40px;">
+            <p style="font-size:22px;">A kosár üres. <a href="index.html" style="color:#4CAF50;">Válogasson termékeink közül!</a></p>
+        </div>
+
+        <div id="checkout-main" style="display:none;">
+            <div id="form-errors" class="info-box form-errors" style="display:none;">
+                <ul id="error-list"></ul>
+            </div>
+
+            <div class="info-box checkout-form-box">
+                <h2>Kosár összesítő</h2>
+                <div id="cart-summary"></div>
+
+                <h2>Szállítási adatok</h2>
+                <form id="checkout-form" class="php-form" novalidate>
+                    <div class="form-group">
+                        <label for="name">Teljes név <span class="required">*</span></label>
+                        <input type="text" id="name" name="name" required maxlength="100"
+                            placeholder="pl. Kovács János">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">E-mail cím <span class="required">*</span></label>
+                        <input type="email" id="email" name="email" required
+                            placeholder="pl. kovacs.janos@email.hu">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Telefonszám <span class="required">*</span></label>
+                        <input type="tel" id="phone" name="phone" required maxlength="30"
+                            placeholder="pl. +36 30 123 4567">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="address">Szállítási cím <span class="required">*</span></label>
+                        <input type="text" id="address" name="address" required maxlength="250"
+                            placeholder="pl. 1234 Budapest, Példa utca 1.">
+                    </div>
+
+                    <button type="submit" class="btn-checkout">✅ Megrendelés véglegesítése</button>
+                </form>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2026 Elektromos Roller Bolt. Minden jog fenntartva.</p>
+    </footer>
+    <div id="toast"></div>
+    <script src="cart.js"></script>
+    <script>
+        function escapeHtml(str) {
+            return String(str)
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;')
+                .replace(/'/g, '&#039;');
+        }
+
+        function formatPrice(p) {
+            return Math.round(p).toString().replace(/\B(?=(\d{3})+(?!\d))/g, '\u00a0') + ' Ft';
+        }
+
+        function sanitizeCart(items) {
+            if (!Array.isArray(items)) return [];
+            return items.filter(function (item) {
+                return item && typeof item.name === 'string' && item.name.length <= 200
+                    && typeof item.price === 'number' && item.price >= 0
+                    && typeof item.qty === 'number' && item.qty >= 1;
+            }).map(function (item) {
+                return { name: item.name, price: item.price, qty: Math.floor(item.qty) };
+            });
+        }
+
+        function buildCartTable(cart) {
+            var total = cart.reduce(function (sum, item) { return sum + item.price * item.qty; }, 0);
+            var rows = cart.map(function (item) {
+                return '<tr>'
+                    + '<td>' + escapeHtml(item.name) + '</td>'
+                    + '<td>' + item.qty + ' db</td>'
+                    + '<td>' + formatPrice(item.price) + '</td>'
+                    + '<td>' + formatPrice(item.price * item.qty) + '</td>'
+                    + '</tr>';
+            }).join('');
+            return '<table class="cart-table">'
+                + '<thead><tr><th>Termék</th><th>Mennyiség</th><th>Egységár</th><th>Összesen</th></tr></thead>'
+                + '<tbody>' + rows + '</tbody>'
+                + '</table>'
+                + '<p class="cart-total">Végösszeg: ' + formatPrice(total) + '</p>';
+        }
+
+        function generateOrderId() {
+            var now = new Date();
+            var pad = function (n) { return n.toString().padStart(2, '0'); };
+            var date = now.getFullYear().toString()
+                + pad(now.getMonth() + 1)
+                + pad(now.getDate());
+            var rand = Math.random().toString(16).substring(2, 10).toUpperCase();
+            return date + '-' + rand;
+        }
+
+        // Read cart from URL query param
+        var params = new URLSearchParams(window.location.search);
+        var cartRaw = params.get('cart');
+        var cart = [];
+        if (cartRaw) {
+            try {
+                var parsed = JSON.parse(cartRaw);
+                cart = sanitizeCart(parsed);
+            } catch (e) {
+                cart = [];
+            }
+        }
+
+        if (cart.length === 0) {
+            document.getElementById('checkout-empty').style.display = 'block';
+        } else {
+            document.getElementById('checkout-main').style.display = 'block';
+            document.getElementById('cart-summary').innerHTML = buildCartTable(cart);
+        }
+
+        document.getElementById('checkout-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            var errors = [];
+            var name = document.getElementById('name').value.trim();
+            var email = document.getElementById('email').value.trim();
+            var phone = document.getElementById('phone').value.trim();
+            var address = document.getElementById('address').value.trim();
+
+            if (name === '') {
+                errors.push('A név megadása kötelező.');
+            } else if (name.length > 100) {
+                errors.push('A név túl hosszú (max. 100 karakter).');
+            }
+
+            var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (email === '' || !emailRegex.test(email)) {
+                errors.push('Érvényes e-mail cím szükséges.');
+            }
+
+            if (phone === '') {
+                errors.push('A telefonszám megadása kötelező.');
+            } else if (!/^[\d\s+\-()\/.]{6,30}$/.test(phone)) {
+                errors.push('Érvénytelen telefonszám formátum.');
+            }
+
+            if (address === '') {
+                errors.push('A szállítási cím megadása kötelező.');
+            } else if (address.length > 250) {
+                errors.push('A cím túl hosszú (max. 250 karakter).');
+            }
+
+            if (cart.length === 0) {
+                errors.push('A kosár üres. Kérjük, adjon terméket a kosárhoz.');
+            }
+
+            var errorsDiv = document.getElementById('form-errors');
+            var errorList = document.getElementById('error-list');
+
+            if (errors.length > 0) {
+                errorList.innerHTML = errors.map(function (err) {
+                    return '<li>' + escapeHtml(err) + '</li>';
+                }).join('');
+                errorsDiv.style.display = 'block';
+                return;
+            }
+
+            errorsDiv.style.display = 'none';
+
+            var orderId = generateOrderId();
+            document.getElementById('order-id').textContent = orderId;
+            document.getElementById('success-cart-table').innerHTML = buildCartTable(cart);
+            document.getElementById('checkout-main').style.display = 'none';
+            document.getElementById('checkout-success').style.display = 'block';
+            localStorage.removeItem('cart');
+            updateCartCount();
+        });
+    </script>
+</body>
+
+</html>
