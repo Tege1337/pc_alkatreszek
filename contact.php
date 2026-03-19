@@ -1,7 +1,6 @@
 <?php
 session_start();
 
-// Generate CSRF token
 if (empty($_SESSION['csrf_token'])) {
     $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
 }
@@ -10,7 +9,6 @@ $errors = [];
 $success = false;
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // CSRF validation
     $token = $_POST['csrf_token'] ?? '';
     if (!hash_equals($_SESSION['csrf_token'], $token)) {
         $errors[] = 'Érvénytelen kérés. Kérjük, próbálja újra.';
@@ -45,7 +43,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $inquiries_dir = __DIR__ . '/inquiries';
             if (!is_dir($inquiries_dir)) {
                 mkdir($inquiries_dir, 0750, true);
-                // Deny direct web access to inquiries
                 file_put_contents($inquiries_dir . '/.htaccess', "Require all denied\n");
             }
 
@@ -64,7 +61,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 json_encode($inquiry, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE)
             );
 
-            // Regenerate CSRF token after successful submission
             $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
             $success = true;
         }
