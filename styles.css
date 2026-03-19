@@ -120,20 +120,102 @@ main {
     margin-bottom: 80px;
 }
 
-#cpu {
-    background-image: url("cpu.jpg");
+#robogok {
+    background-image: url("xiaomi4pro.jpg");
 }
 
-#gpu {
-    background-image: url("gpu.png");
+#motor {
+    background-image: url("36v250w.jpg");
 }
 
-#ram {
-    background-image: url("ram.jpg");
+
+/* Product Grid & Cards */
+.product-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    justify-content: center;
+    padding: 20px 0;
 }
 
-#storage {
-    background-image: url("storage.jpg");
+.product-card {
+    background-color: rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 16px;
+    width: 280px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+}
+
+.product-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.6);
+}
+
+.product-card-image {
+    width: 100%;
+    height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 64px;
+    overflow: hidden;
+}
+
+.product-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.product-card-body {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 8px;
+}
+
+.product-card-body h3 {
+    font-size: 20px;
+    margin: 0;
+    text-shadow: 1px 1px 3px black;
+}
+
+.product-card-body .specs {
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.7);
+    margin: 0;
+    line-height: 1.5;
+}
+
+.product-card-body .price {
+    font-size: 22px;
+    font-weight: bold;
+    color: #4CAF50;
+    margin: 4px 0 0;
+}
+
+.btn-cart {
+    margin-top: auto;
+    padding: 10px 16px;
+    background: linear-gradient(135deg, #00b09b, #003973);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-family: "Oswald", sans-serif;
+    cursor: pointer;
+    transition: opacity 0.2s ease, transform 0.1s ease;
+}
+
+.btn-cart:hover {
+    opacity: 0.85;
+    transform: scale(1.03);
 }
 
 /* Footer */
@@ -198,6 +280,100 @@ footer {
 
 .info-image:hover {
     transform: scale(1.02);
+}
+
+/* Toast Notification */
+#toast {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%) translateY(20px);
+    background-color: rgba(0, 0, 0, 0.85);
+    color: white;
+    padding: 14px 28px;
+    border-radius: 12px;
+    font-size: 18px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: 9999;
+    white-space: nowrap;
+}
+
+#toast.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+/* Cart Page */
+.cart-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    font-size: 18px;
+}
+
+.cart-table th,
+.cart-table td {
+    padding: 12px 16px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    text-align: left;
+}
+
+.cart-table thead th {
+    color: #4CAF50;
+    font-size: 20px;
+}
+
+.cart-total {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: right;
+    color: #4CAF50;
+    margin-bottom: 20px;
+}
+
+.btn-checkout {
+    display: block;
+    margin: 0 auto;
+    padding: 14px 40px;
+    background: linear-gradient(135deg, #4CAF50, #00796b);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 22px;
+    font-family: "Oswald", sans-serif;
+    cursor: pointer;
+    transition: opacity 0.2s ease, transform 0.1s ease;
+}
+
+.btn-checkout:hover {
+    opacity: 0.85;
+    transform: scale(1.03);
+}
+
+.btn-remove {
+    padding: 8px 14px;
+    background: linear-gradient(135deg, #c0392b, #8e1a0e);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    font-family: "Oswald", sans-serif;
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+}
+
+.btn-remove:hover {
+    opacity: 0.8;
+}
+
+/* Inner Page h1 */
+main h1 {
+    font-size: 52px;
+    text-shadow: 4px 4px 8px black;
+    margin: 40px 0 20px;
+    text-align: center;
 }
 
 /* Nav Active State */
@@ -284,5 +460,34 @@ nav a.active {
 
     .info-content {
         font-size: 16px;
+    }
+
+    /* Product Cards */
+    .product-grid {
+        gap: 16px;
+    }
+
+    .product-card {
+        width: 90%;
+        max-width: 340px;
+    }
+
+    /* Cart */
+    .cart-table {
+        font-size: 14px;
+    }
+
+    .cart-table th,
+    .cart-table td {
+        padding: 8px 10px;
+    }
+
+    .cart-total {
+        font-size: 18px;
+    }
+
+    /* Inner Page h1 */
+    main h1 {
+        font-size: 36px;
     }
 }
