@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <title>Robogók - Teljes Elektromos Rollerek</title>
+</head>
+<body>
+    <nav>
+        <a href="index.html">FŐOLDAL</a>
+        <a href="robogok.html">ROBOGÓK</a>
+        <a href="motorok.html" class="active">MOTOR</a>
+        <a href="aksik.html">AKKUMULÁTOR</a>
+        <a href="kerekek.html">KEREKEK</a>
+        <a href="tortenelem.html">TÖRTÉNET</a>
+        <a href="cart.html">🛒 <span id="cart-count"></span></a>
+    </nav>
+    <main>
+        <h1>Elektromos Rollerek</h1>
+
+        <div class="info-box">
+            <div class="info-content">
+                <h2>Hogyan válassz rollert?</h2>
+                <p>A tökéletes elektromos roller kiválasztásakor érdemes figyelembe venni a
+                    <strong>hatótávolságot</strong>, a <strong>maximális terhelhetőséget</strong>, a
+                    <strong>töltési időt</strong> és természetesen az <strong>árat</strong>. Városi
+                    közlekedéshez egy 25–40 km-es hatótávolságú roller tökéletes választás.</p>
+
+                <h2>Mire figyeljünk?</h2>
+                <ul>
+                    <li><strong>Hatótávolság:</strong> Mennyit tudsz megtenni egyetlen töltéssel? Fontos a napi útvonal hossza.</li>
+                    <li><strong>Motor teljesítmény:</strong> 250–500 W városi, 500 W+ terepen való használatra ajánlott.</li>
+                    <li><strong>Tömeg és összehajthatóság:</strong> Ha tömegközlekedéssel kombinálod, fontos a könnyű súly.</li>
+                    <li><strong>Fék típusa:</strong> Tárcsafék > dobfék > elektromos fék a megbízhatóság szempontjából.</li>
+                </ul>
+
+                <h2>Termékeink</h2>
+                <div class="product-grid">
+                    <div class="product-card">
+                        <div class="product-card-image" style="background: linear-gradient(135deg, #003973, #00b09b);"><img src="xiaomi4pro.jpg" alt=""></div>
+                        <div class="product-card-body">
+                            <h3>Xiaomi Mi 4 Pro</h3>
+                            <p class="specs">Max. 55 km hatótáv · 700 W motor · 25 km/h · 16 kg · 8,5" pneumatik</p>
+                            <p class="price">199 990 Ft</p>
+                            <button class="btn-cart" onclick="addToCart('Xiaomi Mi 4 Pro', 199990)">🛒 Kosárba</button>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-card-image" style="background: linear-gradient(135deg, #134e5e, #71b280);"><img src="ninebot-segway-max-g30-ii.jpg" alt=""></div>
+                        <div class="product-card-body">
+                            <h3>Segway Ninebot Max G2</h3>
+                            <p class="specs">Max. 70 km hatótáv · 900 W motor · 25 km/h · 23 kg · 10" pneumatik</p>
+                            <p class="price">279 990 Ft</p>
+                            <button class="btn-cart" onclick="addToCart('Segway Ninebot Max G2', 279990)">🛒 Kosárba</button>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-card-image" style="background: linear-gradient(135deg, #1a1a2e, #16213e);"><img src="kaboomantis.jpg" alt="" style="width: 100%; height: 100%; object-fit: cover;"></div>
+                        <div class="product-card-body">
+                            <h3>Kaabo Mantis 10 Pro+</h3>
+                            <p class="specs">Max. 80 km hatótáv · 2×1000 W motor · 60 km/h · 29 kg · 10" pneumatik</p>
+                            <p class="price">399 990 Ft</p>
+                            <button class="btn-cart" onclick="addToCart('Kaabo Mantis 10 Pro+', 399990)">🛒 Kosárba</button>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-card-image" style="background: linear-gradient(135deg, #0f3460, #533483);"><img src="vsett-10-pls.jpg" alt=""></div>
+                        <div class="product-card-body">
+                            <h3>Vsett 10+ Plus</h3>
+                            <p class="specs">Max. 90 km hatótáv · 2×600 W motor · 40 km/h · 27 kg · 10" pneumatik</p>
+                            <p class="price">349 990 Ft</p>
+                            <button class="btn-cart" onclick="addToCart('Vsett 10+ Plus', 349990)">🛒 Kosárba</button>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-card-image" style="background: linear-gradient(135deg, #005c97, #363795);"><img src="electric-scooter-navee-n65_78902632_1200x630.jpg" alt=""></div>
+                        <div class="product-card-body">
+                            <h3>Navee N65</h3>
+                            <p class="specs">Max. 65 km hatótáv · 500 W motor · 25 km/h · 19 kg · 10" pneumatik</p>
+                            <p class="price">169 990 Ft</p>
+                            <button class="btn-cart" onclick="addToCart('Navee N65', 169990)">🛒 Kosárba</button>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-card-image" style="background: linear-gradient(135deg, #0a3d62, #079992);"><img src="kugoom5pro.jpg" alt=""></div>
+                        <div class="product-card-body">
+                            <h3>Kugoo M5 Pro</h3>
+                            <p class="specs">Max. 45 km hatótáv · 500 W motor · 30 km/h · 20 kg · 10" tömör</p>
+                            <p class="price">139 990 Ft</p>
+                            <button class="btn-cart" onclick="addToCart('Kugoo M5 Pro', 139990)">🛒 Kosárba</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2026 Elektromos Roller Bolt. Minden jog fenntartva.</p>
+    </footer>
+    <div id="toast"></div>
+    <script src="cart.js"></script>
+</body>
+
+</html>

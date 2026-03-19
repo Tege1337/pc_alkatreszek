@@ -78,4 +78,10 @@
     .info-content {
         font-size: 16px;
     }
+
+    /* Product Cards */
+    .product-card {
+        width: 90%;
+        max-width: 340px;
+    }
 }

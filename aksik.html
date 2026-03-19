@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <title>Akkumulátor - Energiatárolás</title>
+</head>
+
+<body>
+    <nav>
+        <a href="index.html">FŐOLDAL</a>
+        <a href="robogok.html">ROBOGÓK</a>
+        <a href="motorok.html" class="active">MOTOR</a>
+        <a href="aksik.html">AKKUMULÁTOR</a>
+        <a href="kerekek.html">KEREKEK</a>
+        <a href="tortenelem.html">TÖRTÉNET</a>
+        <a href="cart.html">🛒 <span id="cart-count"></span></a>
+    </nav>
+    <main>
+        <h1>Akkumulátorok</h1>
+
+        <div class="info-box">
+            <div class="info-content">
+                <h2>Miért fontos az akkumulátor?</h2>
+                <p>Az akkumulátor az elektromos roller szíve. A <strong>kapacitása (Wh)</strong> határozza meg a
+                    hatótávolságot, a <strong>feszültsége (V)</strong> a motorteljesítményt befolyásolja, az
+                    <strong>áramerőssége (A)</strong> pedig a gyorsulást és a töltési sebességet. A legtöbb modern
+                    rollerben <strong>lítium-ion (Li-Ion)</strong> vagy <strong>lítium-polimer (LiPo)</strong> cellák
+                    találhatók.</p>
+
+                <h2>Mit jelent a kapacitás?</h2>
+                <ul>
+                    <li><strong>Wh (watóra):</strong> Minél nagyobb, annál messzebb mész. 1 km ≈ 10–15 Wh fogyasztás.</li>
+                    <li><strong>36V–48V:</strong> Standard városi rollerekhez. Biztonságos és megbízható.</li>
+                    <li><strong>52V–60V:</strong> Nagy teljesítményű rollerekhez, jobb gyorsulás és kisebb veszteség.</li>
+                </ul>
+
+                <h2>Termékeink</h2>
+                <div class="product-grid">
+                    <div class="product-card">
+                        <div class="product-card-image" style="background: linear-gradient(135deg, #134e5e, #71b280);">🔋</div>
+                        <div class="product-card-body">
+                            <h3>36V 7,5Ah Li-Ion</h3>
+                            <p class="specs">270 Wh · ~18–27 km hatótáv · 2A töltő · BMS védelem · 1,8 kg</p>
+                            <p class="price">22 990 Ft</p>
+                            <button class="btn-cart" onclick="addToCart('36V 7,5Ah Li-Ion akkumulátor', 22990)">🛒 Kosárba</button>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-card-image" style="background: linear-gradient(135deg, #0a3d62, #079992);">🔋</div>
+                        <div class="product-card-body">
+                            <h3>36V 10Ah Li-Ion</h3>
+                            <p class="specs">360 Wh · ~24–36 km hatótáv · 2A töltő · BMS védelem · 2,2 kg</p>
+                            <p class="price">34 990 Ft</p>
+                            <button class="btn-cart" onclick="addToCart('36V 10Ah Li-Ion akkumulátor', 34990)">🛒 Kosárba</button>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-card-image" style="background: linear-gradient(135deg, #005c97, #363795);">🔋</div>
+                        <div class="product-card-body">
+                            <h3>48V 15Ah LiPo</h3>
+                            <p class="specs">720 Wh · ~48–72 km hatótáv · 4A gyorstöltő · BMS · 3,5 kg</p>
+                            <p class="price">54 990 Ft</p>
+                            <button class="btn-cart" onclick="addToCart('48V 15Ah LiPo akkumulátor', 54990)">🛒 Kosárba</button>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-card-image" style="background: linear-gradient(135deg, #0f3460, #533483);">🔋</div>
+                        <div class="product-card-body">
+                            <h3>52V 20Ah Nagy kapacitású</h3>
+                            <p class="specs">1040 Wh · ~70–100 km hatótáv · 5A gyorstöltő · BMS · 4,8 kg</p>
+                            <p class="price">89 990 Ft</p>
+                            <button class="btn-cart" onclick="addToCart('52V 20Ah Nagy kapacitású akkumulátor', 89990)">🛒 Kosárba</button>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-card-image" style="background: linear-gradient(135deg, #003973, #00b09b);">🔌</div>
+                        <div class="product-card-body">
+                            <h3>Okos töltő 42V 2A</h3>
+                            <p class="specs">36V akkumulátorokhoz · LED visszajelző · automatikus lekapcsolás</p>
+                            <p class="price">6 990 Ft</p>
+                            <button class="btn-cart" onclick="addToCart('Okos töltő 42V 2A', 6990)">🛒 Kosárba</button>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-card-image" style="background: linear-gradient(135deg, #232526, #414345);">🔌</div>
+                        <div class="product-card-body">
+                            <h3>Gyorstöltő 54.6V 5A</h3>
+                            <p class="specs">48V akkumulátorokhoz · gyors töltési idő · hőmérséklet védelem</p>
+                            <p class="price">12 990 Ft</p>
+                            <button class="btn-cart" onclick="addToCart('Gyorstöltő 54.6V 5A', 12990)">🛒 Kosárba</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2026 Elektromos Roller Bolt. Minden jog fenntartva.</p>
+    </footer>
+    <div id="toast"></div>
+    <script src="cart.js"></script>
+</body>
+
+</html>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hu">
 
 <head>
     <meta charset="UTF-8">
@@ -8,48 +8,52 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-    <title>Alkatrészek</title>
+    <title>Elektromos Roller Bolt</title>
 </head>
 
 <body>
     <nav>
-        <a href="index.html" class="active">FŐOLDAL</a>
-        <a href="cpu.html">CPU</a>
-        <a href="gpu.html">GPU</a>
-        <a href="ram.html">RAM</a>
-        <a href="storage.html">TÁRHELY</a>
-        <a href="neumann.html">NEUMANN</a>
+        <a href="index.html">FŐOLDAL</a>
+        <a href="robogok.html">ROBOGÓK</a>
+        <a href="motorok.html" class="active">MOTOR</a>
+        <a href="aksik.html">AKKUMULÁTOR</a>
+        <a href="kerekek.html">KEREKEK</a>
+        <a href="tortenelem.html">TÖRTÉNET</a>
+        <a href="cart.html">🛒 <span id="cart-count"></span></a>
     </nav>
     <main>
         <!-- Welcome Section -->
         <div class="welcome">
-            <h1>Köszöntjük az Alkatrészek Boltban</h1>
-            <p>A számítógép alkatrészek igazi egyablakos boltja.</p>
+            <h1>Köszöntjük az Elektromos Roller Boltban</h1>
+            <p>Teljes rollerek és alkatrészek egyablakos boltja – válassz, kattints, gurulj!</p>
         </div>
 
-        <!-- Neumann János Section -->
+        <!-- Featured Section -->
         <div class="Neumann">
-            <h1><a href="neumann.html" style="text-decoration: none; color: white;">Neumann János</a></h1>
-            <p>Neumann János, a számítógép tudományának egyik legnagyobb alakja, aki a Neumann-architektúra
-                megalkotásával forradalmasította a számítástechnika világát. Az ő munkássága tette lehetővé a modern
-                számítógépek fejlődését, és hozzájárult a digitális korszak kialakulásához.</p>
+            <h1>Miért válassz elektromos rollert?</h1>
+            <p>Az elektromos roller a városi közlekedés jövője. Környezetbarát, gazdaságos és élvezetes –
+                nem kell üzemanyag, nem kell parkolóhely, és az ingázás is igazi élménnyé válik.
+                Boltunkban megtalálod a legjobb komplett rollereket, valamint minden szükséges alkatrészt
+                a karbantartáshoz és az egyéni testreszabáshoz. Csatlakozz te is az e-roller forradalomhoz!</p>
         </div>
 
         <!-- Product Categories Section -->
         <div class="categories">
-            <h1>Termékkategóriák</h1>
+            <h1>Kategóriák</h1>
             <div class="category-list">
-                <a href="cpu.html" id="cpu" class="category-item">CPU</a>
-                <a href="gpu.html" id="gpu" class="category-item">GPU</a>
-                <a href="ram.html" id="ram" class="category-item">RAM</a>
-                <a href="storage.html" id="storage" class="category-item">TÁRHELY</a>
+                <a href="robogok.html" id="robogok" class="category-item">🛴 ROBOGÓK</a>
+                <a href="motorok.html" id="motor" class="category-item">⚡ MOTOR</a>
+                <a href="aksik.html" id="akkumulator" class="category-item">🔋 AKKUMULÁTOR</a>
+                <a href="kerekek.html" id="kerekek" class="category-item">🛞 KEREKEK</a>
             </div>
-
+        </div>
     </main>
     <!-- Footer -->
     <footer>
-        <p>&copy; 2026 Alkatrészek Bolt. Minden jog fenntartva.</p>
+        <p>&copy; 2026 Elektromos Roller Bolt. Minden jog fenntartva.</p>
     </footer>
+    <div id="toast"></div>
+    <script src="cart.js"></script>
 </body>
 
 </html>

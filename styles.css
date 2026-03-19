@@ -1,289 +1,30 @@
-* {
-    font-family: "Oswald", sans-serif;
-}
+/* Updated styles for electric scooters */
 
-
-/* Navigation */
-nav {
-    display: flex;
-    justify-content: right;
-    padding: 30px;
-    background-color: rgba(0, 0, 0, 0.507);
-}
-
-nav a {
-    color: white;
-    text-decoration: none;
-    margin-right: 20px;
-    font-size: 36px;
-    font-weight: bold;
-    padding-left: 30px;
-}
-
-nav a:hover {
-    color: gray;
-    transition: all 0.2s ease;
-    scale: 1.1;
-}
-
-
-/* Main */
 body {
-    color: white;
-    background-image: linear-gradient(to bottom right, rgb(0, 36, 136), rgb(0, 148, 7));
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
 }
 
-main {
-    padding: 50px;
+h1 {
+    color: #333;
     text-align: center;
 }
 
-
-/* Welcome */
-.welcome {
-    padding: 120px;
-}
-
-.welcome h1 {
-    text-shadow: 4px 4px 8px black;
-    font-size: 100px;
-    margin-bottom: 20px;
-}
-
-.welcome p {
-    text-shadow: 4px 4px 8px black;
-    font-size: 26px;
-}
-
-
-/* Neumann */
-.Neumann {
-    background-image: url("neumann.jpg");
-    background-position: center;
-    background-size: cover;
-    padding: 50px;
-    margin: 250px auto 0 auto;
-    border-radius: 50px;
-    width: 80%;
-    display: flex;
-    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
-}
-
-.Neumann h1 {
-    font-size: 50px;
-    margin-right: 30px;
-    text-shadow: 2px 2px 4px black;
-}
-
-.Neumann p {
-    font-size: 20px;
-    text-align: right;
-    text-shadow: 2px 2px 4px black;
-}
-
-
-/* Product Categories */
-.category-item {
-    background-color: rgba(0, 0, 0, 0.507);
-    padding: 20px;
-    margin: 20px;
-    border-radius: 20px;
-    width: 30%;
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    height: 200px;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    transition: transform 0.3s ease;
-    box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.5);
-
-    /* Text Styles */
+.button {
+    background-color: #4CAF50;
     color: white;
-    font-size: 40px;
-    font-weight: bold;
-    text-shadow: 2px 2px 4px black;
+    padding: 15px 20px;
+    text-align: center;
     text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
 }
 
-.category-item:hover {
-    transform: scale(1.05);
-}
-
-.categories {
-    padding-top: 250px;
-}
-
-.categories h1 {
-    text-shadow: 4px 4px 8px black;
-    font-size: 50px;
-    margin-bottom: 80px;
-}
-
-#cpu {
-    background-image: url("cpu.jpg");
-}
-
-#gpu {
-    background-image: url("gpu.png");
-}
-
-#ram {
-    background-image: url("ram.jpg");
-}
-
-#storage {
-    background-image: url("storage.jpg");
-}
-
-/* Footer */
-footer {
-    background-color: rgba(0, 0, 0, 0.507);
-    padding: 20px;
+.footer {
+    background-color: #333;
+    color: white;
     text-align: center;
-    margin-top: 50px;
-}
-
-
-
-/* Scrollbar */
-::-webkit-scrollbar {
-    width: 20px;
-    height: 20px;
-}
-
-::-webkit-scrollbar-track {
-    box-shadow: inset 0 0 5px grey;
-    border-radius: 10px;
-}
-
-::-webkit-scrollbar-thumb {
-    background-image: linear-gradient(to bottom, rgb(0, 21, 78), rgb(0, 80, 5));
-    border-radius: 10px;
-}
-
-/* Info Pages (RAM, GPU, etc.) */
-.info-box {
-    background-color: rgba(0, 0, 0, 0.6);
-    padding: 40px;
-    margin: 20px auto;
-    border-radius: 20px;
-    max-width: 800px;
-    text-align: left;
-    backdrop-filter: blur(5px);
-}
-
-.info-content {
-    font-size: 20px;
-    line-height: 1.6;
-}
-
-.info-box h2 {
-    color: #4CAF50;
-    /* Green accent */
-    margin-top: 30px;
-    margin-bottom: 15px;
-    font-size: 32px;
-}
-
-.info-image {
-    width: 100%;
-    max-width: 600px;
-    border-radius: 20px;
-    margin: 20px auto;
-    display: block;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-    transition: transform 0.3s ease;
-}
-
-.info-image:hover {
-    transform: scale(1.02);
-}
-
-/* Nav Active State */
-nav a.active {
-    color: #4CAF50;
-    text-shadow: 0 0 10px rgba(76, 175, 80, 0.5);
-}
-
-/* Responsive Design */
-@media (max-width: 900px) {
-
-    /* Navigation */
-    nav {
-        flex-direction: column;
-        align-items: center;
-        padding: 20px;
-    }
-
-    nav a {
-        margin: 10px 0;
-        padding-left: 0;
-        font-size: 24px;
-    }
-
-    /* Welcome Section */
-    .welcome {
-        padding: 50px 20px;
-    }
-
-    .welcome h1 {
-        font-size: 50px;
-    }
-
-    .welcome p {
-        font-size: 18px;
-    }
-
-    /* Neumann Section */
-    .Neumann {
-        width: 90%;
-        flex-direction: column;
-        margin-top: 100px;
-        background-position: center;
-    }
-
-    .Neumann h1 {
-        font-size: 36px;
-        margin-right: 0;
-        margin-bottom: 20px;
-        text-align: center;
-    }
-
-    .Neumann p {
-        font-size: 16px;
-        text-align: center;
-    }
-
-    /* Categories */
-    .categories {
-        padding-top: 100px;
-    }
-
-    .categories h1 {
-        font-size: 40px;
-        margin-bottom: 40px;
-    }
-
-    .category-item {
-        width: 90%;
-        max-width: 400px;
-        margin: 20px auto;
-        display: flex;
-    }
-
-    /* Info Pages */
-    .info-box {
-        padding: 20px;
-        width: 90%;
-    }
-
-    .info-box h2 {
-        font-size: 24px;
-    }
-
-    .info-content {
-        font-size: 16px;
-    }
+    padding: 10px 0;
 }
