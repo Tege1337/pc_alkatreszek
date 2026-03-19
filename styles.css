@@ -121,11 +121,19 @@ main {
 }
 
 #robogok {
-    background-image: url("xiaomi4pro.jpg");
+    background: linear-gradient(135deg, #003973, #00b09b);
 }
 
 #motor {
-    background-image: url("36v250w.jpg");
+    background: linear-gradient(135deg, #0f0c29, #302b63);
+}
+
+#akkumulator {
+    background: linear-gradient(135deg, #134e5e, #71b280);
+}
+
+#kerekek {
+    background: linear-gradient(135deg, #1a1a2e, #16213e);
 }
 
 
