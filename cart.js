@@ -92,11 +92,12 @@ function renderAuthLinks() {
 
     if (authState.loggedIn) {
         container.innerHTML =
-            '<a href="logout.php">KILÉPÉS (' + escapeHtml(authState.userName || 'felhasználó') + ')</a>';
+            '<span class="dropdown-username">' + escapeHtml(authState.userName || 'felhasználó') + '</span>' +
+            '<a href="logout.php">Kilépés</a>';
     } else {
         container.innerHTML =
-            '<a href="login.php">BELÉPÉS</a>' +
-            '<a href="signup.php">REGISZTRÁCIÓ</a>';
+            '<a href="login.php">Belépés</a>' +
+            '<a href="signup.php">Regisztráció</a>';
     }
 }
 
@@ -227,7 +228,7 @@ function updateCartCount() {
     if (badge) {
         if (count > 0) {
             badge.textContent = count;
-            badge.style.display = 'inline';
+            badge.style.display = 'flex';
         } else {
             badge.textContent = '';
             badge.style.display = 'none';

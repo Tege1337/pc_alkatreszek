@@ -88,14 +88,31 @@ $csrf = htmlspecialchars($_SESSION['csrf_token'], ENT_QUOTES, 'UTF-8');
 
 <body>
     <nav>
-        <a href="index.html">FŐOLDAL</a>
-        <a href="robogok.html">ROBOGÓK</a>
-        <a href="motorok.html">MOTOR</a>
-        <a href="aksik.html">AKKUMULÁTOR</a>
-        <a href="kerekek.html">KEREKEK</a>
-        <a href="tortenelem.html">TÖRTÉNET</a>
-        <a href="contact.php" class="active">KAPCSOLAT</a>
-        <a href="cart.html">🛒 <span id="cart-count"></span></a>
+        <a href="index.html" class="nav-brand">⚡ ROLLER BOLT</a>
+        <div class="nav-links">
+            <a href="index.html">FŐOLDAL</a>
+            <a href="robogok.html">ROBOGÓK</a>
+            <a href="motorok.html">MOTOR</a>
+            <a href="aksik.html">AKKUMULÁTOR</a>
+            <a href="kerekek.html">KEREKEK</a>
+            <a href="tortenelem.html">TÖRTÉNET</a>
+            <a href="contact.php" class="active">KAPCSOLAT</a>
+        </div>
+        <div class="nav-icons">
+            <div class="nav-profile-wrap">
+                <button class="nav-icon-btn" aria-label="Profil">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="26" height="26"><path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/></svg>
+                </button>
+                <div class="profile-dropdown" id="auth-links">
+                    <a href="login.php">Belépés</a>
+                    <a href="signup.php">Regisztráció</a>
+                </div>
+            </div>
+            <a href="cart.html" class="nav-icon-btn cart-icon-btn" aria-label="Kosár">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="26" height="26"><path d="M7 18c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm10 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zM7.2 14.2L5 4H2V2H4.3l.8 3.2L7.8 16H18l1.7-8H7.5l-.3-2h12.6l-2.2 10H7.2z"/></svg>
+                <span id="cart-count"></span>
+            </a>
+        </div>
     </nav>
     <main>
         <h1>Kapcsolat</h1>
