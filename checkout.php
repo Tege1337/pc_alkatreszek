@@ -183,6 +183,9 @@ $csrf = htmlspecialchars($_SESSION['csrf_token'], ENT_QUOTES, 'UTF-8');
         <script>
             // Clear the cart from localStorage after successful order
             localStorage.removeItem('cart');
+            if (typeof syncCartWithServer === 'function') {
+                syncCartWithServer();
+            }
         </script>
 
         <?php else: ?>
