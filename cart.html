@@ -47,6 +47,9 @@
             cart = cart.filter(function(item) { return item.name !== name; });
             localStorage.setItem('cart', JSON.stringify(cart));
             updateCartCount();
+            if (typeof syncCartWithServer === 'function') {
+                syncCartWithServer();
+            }
             renderCart();
         }
 
@@ -99,7 +102,7 @@
         function checkout() {
             const cart = JSON.parse(localStorage.getItem('cart') || '[]');
             if (cart.length === 0) return;
-            window.location.href = 'checkout.html?cart=' + encodeURIComponent(JSON.stringify(cart));
+            window.location.href = 'checkout.php?cart=' + encodeURIComponent(JSON.stringify(cart));
         }
 
         renderCart();
